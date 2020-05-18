@@ -39,12 +39,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return UserdefaultsHandler(persistance: UserDefaults.standard)
         }
 
+        container.register(StorageProtocol.self) { _ in
+            return Storage()
+        }.inObjectScope(.container)
+    
         container.register(SearchResultsPresenterProtocol.self) { resolver in
             let interactor = resolver.resolve(SearchResultsInteractorInputProtocol.self)!
             let router = resolver.resolve(SearchResultsRouterInputProtocol.self)!
             let persistance = resolver.resolve(PersistanceProtocol.self)!
+            let storage = resolver.resolve(StorageProtocol.self)!
 
-            return SearchPresenter(interactor: interactor, router: router, persistance: persistance)
+            return SearchPresenter(interactor: interactor, router: router, persistance: persistance, storage: storage)
         }
         
         container.register(PendingOperationProtocol.self) { resolver in

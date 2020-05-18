@@ -253,12 +253,25 @@ class SearchViewController: UIViewController, SearchResultsInterfaceProtocol {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         cacheManager.pendingOperations.cancelAllOperations()
+        var index = 0
+        var existingItem: PreviousSearchData?
+        var isItemPresent = false
+        if var searches = viewModel.persistance.getvalue(for: .recentSearches) {
+            for (cIndex, cItem) in searches.enumerated() where searchBar.text == cItem.title {
+                index = cIndex
+                isItemPresent = true
+                existingItem = cItem
+            }
+            if isItemPresent, var existingItem = existingItem {
+                existingItem.photos = dataSource
+                searches[index] = PreviousSearchData(title: searchBar.text!, photos: existingItem.photos)
+            }
+            viewModel.persistance.set(value: searches, for: .recentSearches)
+            recentSearchesView.updateDatasource(searches)
+        }
         searchBar.text = ""
         dataSource = []
         collectionView.reloadData()
-        if let searches = viewModel.persistance.getvalue(for: .recentSearches) {
-            recentSearchesView.updateDatasource(searches)
-        }
         showRecentSearches()
     }
 
@@ -272,8 +285,10 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: RecentSearchesViewDelegate {
     func didSelectRecentSearch(_ searchItem: PreviousSearchData) {
+        hideRecentSearches()
         searchController.searchBar.text = searchItem.title
-        perfromSearchFor(text: searchItem.title)
+        dataSource = searchItem.photos
+        collectionView.reloadData()
     }
 }
 

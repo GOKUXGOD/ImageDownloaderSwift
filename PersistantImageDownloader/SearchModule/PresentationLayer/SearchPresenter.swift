@@ -14,6 +14,8 @@ final class SearchPresenter: SearchResultsPresenterProtocol {
     var interactor: SearchResultsInteractorInputProtocol
     var router: SearchResultsRouterInputProtocol
     var persistance: PersistanceProtocol
+    var storage: StorageProtocol
+
     private var offset = 1
     private var size = 20
     private var currentSearchedText = ""
@@ -21,10 +23,12 @@ final class SearchPresenter: SearchResultsPresenterProtocol {
 
     init(interactor: SearchResultsInteractorInputProtocol,
          router: SearchResultsRouterInputProtocol,
-         persistance: PersistanceProtocol) {
+         persistance: PersistanceProtocol,
+         storage: StorageProtocol) {
         self.interactor = interactor
         self.router = router
         self.persistance = persistance
+        self.storage = storage
 
         self.interactor.presenter = self
     }
@@ -37,7 +41,7 @@ final class SearchPresenter: SearchResultsPresenterProtocol {
         interactor.performSearchFor(text, offset: offset, size: size)
     }
     
-    private func saveSearchedItem(_ item: String) {
+    private func saveSearchedItem(_ item: String, photos: [SearchItem]) {
         guard !item.isEmpty else {
             return
         }
@@ -45,22 +49,30 @@ final class SearchPresenter: SearchResultsPresenterProtocol {
             if existingItems.count <= kPreviosSearchesMaxCount {
                 var index = 0
                 var isItemPresent = false
+                var existingItem: PreviousSearchData?
                 for (cIndex, cItem) in existingItems.enumerated() where item == cItem.title {
                     index = cIndex
                     isItemPresent = true
+                    existingItem = cItem
                 }
                 if !isItemPresent {
                     if existingItems.count == kPreviosSearchesMaxCount {
                         existingItems.removeLast()
                     }
-                    existingItems.insert(PreviousSearchData(title: item), at: 0)
+                    existingItems.insert(PreviousSearchData(title: item, photos: photos), at: 0)
                 } else if isItemPresent {
+                    if var exisitingPhotos = existingItem?.photos {
+                        exisitingPhotos.append(contentsOf: photos)
+                        existingItems[index] = PreviousSearchData(title: item, photos: exisitingPhotos)
+                    }
                     existingItems.move(from: index, to: 0)
                 }
+               // storage.previousSearches = existingItems
                 persistance.set(value: existingItems, for: .recentSearches)
             }
         } else {
-            persistance.set(value: [PreviousSearchData(title: item)], for: .recentSearches)
+            //storage.previousSearches = [PreviousSearchData(title: item, photos: photos)]
+            persistance.set(value: [PreviousSearchData(title: item, photos: photos)], for: .recentSearches)
         }
     }
 }
@@ -71,7 +83,7 @@ extension SearchPresenter: SearchResultsInteractorOutputProtocol {
             interface?.setUpView(with: data.photos)
             offset += 1
             if data.photos.count > 0 {
-                saveSearchedItem(currentSearchedText)
+                saveSearchedItem(currentSearchedText, photos: data.photos)
             }
         }
     }

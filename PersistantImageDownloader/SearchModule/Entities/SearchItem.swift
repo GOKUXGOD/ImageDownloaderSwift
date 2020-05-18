@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public enum SearchItemState {
+public enum SearchItemState: String, Codable {
   case new, downloaded, failed
 }
 
