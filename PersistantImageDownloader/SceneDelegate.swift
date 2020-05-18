@@ -7,17 +7,96 @@
 //
 
 import UIKit
+import Swinject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let container: Container = {
+        let container = Container()
 
+        container.register(SearchApiServiceProtocol.self) { _ in
+            let networkService = PixabayImagesClient()
+            return SearchApiService(networkService: networkService)
+        }
+
+        container.register(SearchServiceProtocol.self) { resolver in
+            let apiService = resolver.resolve(SearchApiServiceProtocol.self)!
+            let baseUrl = "https://pixabay.com/api/?key=16572321-abb986fe5cfd7ca7d3e003593"
+            return SearchService(apiService: apiService, baseUrl: baseUrl)
+        }
+
+        container.register(SearchResultsInteractorInputProtocol.self) { resolver in
+            let searchService = resolver.resolve(SearchServiceProtocol.self)!
+            return SearchInteractor(searchService: searchService)
+        }
+
+        container.register(SearchResultsRouterInputProtocol.self) { _ in
+            return SearchRouter()
+        }
+
+        container.register(PersistanceProtocol.self) { _ in
+            return UserdefaultsHandler(persistance: UserDefaults.standard)
+        }
+
+        container.register(SearchResultsPresenterProtocol.self) { resolver in
+            let interactor = resolver.resolve(SearchResultsInteractorInputProtocol.self)!
+            let router = resolver.resolve(SearchResultsRouterInputProtocol.self)!
+            let persistance = resolver.resolve(PersistanceProtocol.self)!
+
+            return SearchPresenter(interactor: interactor, router: router, persistance: persistance)
+        }
+        
+        container.register(PendingOperationProtocol.self) { resolver in
+            return PendingOperations()
+        }.inObjectScope(.container)
+        
+        container.register(CacheProtocol.self) { resolver in
+            let pendingOperations = resolver.resolve(PendingOperationProtocol.self)!
+            return CacheManager(pendingOperation: pendingOperations)
+        }.inObjectScope(.container)
+
+        container.register(SearchViewModelProtocol.self) { resolver in
+            var data: [PreviousSearchData] = []
+            let persistance = resolver.resolve(PersistanceProtocol.self)!
+            if let value = persistance.getvalue(for: .recentSearches) {
+                data = value
+            }
+            return SearchViewModel(title: "Search", placeholder: "Search for anything", reuseIdentifier: "SearchCell", numberOfCellsInRow: 3, spaceBetweenCells: 10, persistance: persistance)
+        }
+
+        container.register(RecentSearchesInterface.self) { resolver in
+            var data: [PreviousSearchData] = []
+            let persistance = resolver.resolve(PersistanceProtocol.self)!
+            if let value = persistance.getvalue(for: .recentSearches) {
+                data = value
+            }
+            return RecentSearchesViewController(dataSource: data)
+        }
+
+        container.register(SearchResultsInterfaceProtocol.self) { resolver in
+            let presenter = resolver.resolve(SearchResultsPresenterProtocol.self)!
+            let viewModel = resolver.resolve(SearchViewModelProtocol.self)!
+            let recentSearchesInterface = resolver.resolve(RecentSearchesInterface.self)!
+            let cacheProtocol = resolver.resolve(CacheProtocol.self)!
+
+            return SearchViewController(presenter: presenter, viewModel: viewModel, recentSearchesView: recentSearchesInterface, cacheManager: cacheProtocol)
+        }
+
+        return container
+    }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+               let window = UIWindow(windowScene: scene)
+               self.window = window
+               // Instantiate the root view controller with dependencies injected by the container.
+               let searchViewController = container.resolve(SearchResultsInterfaceProtocol.self) as? UIViewController
+               window.rootViewController = UINavigationController(rootViewController: searchViewController!)
+               window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
