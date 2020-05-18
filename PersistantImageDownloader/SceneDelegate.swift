@@ -62,7 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let value = persistance.getvalue(for: .recentSearches) {
                 data = value
             }
-            return SearchViewModel(title: "Search", placeholder: "Search for anything", reuseIdentifier: "SearchCell", numberOfCellsInRow: 3, spaceBetweenCells: 10, persistance: persistance)
+            return SearchViewModel(title: "Search", placeholder: "Search for anything", reuseIdentifier: "SearchCell", numberOfCellsInRow: 3, spaceBetweenCells: 10, persistance: persistance, minimumSpacing: 5, edgeInsetPadding: 10)
         }
 
         container.register(RecentSearchesInterface.self) { resolver in

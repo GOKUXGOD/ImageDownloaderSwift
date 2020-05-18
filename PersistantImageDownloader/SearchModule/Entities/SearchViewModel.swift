@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 protocol SearchViewModelProtocol {
     var title: String { get set }
     var placeholder: String { get set }
@@ -14,6 +16,9 @@ protocol SearchViewModelProtocol {
     var numberOfCellsInRow: Int { get set }
     var spaceBetweenCells: Int { get set }
     var persistance: PersistanceProtocol { get set }
+    var minimumSpacing: CGFloat { get set }
+    var edgeInsetPadding: CGFloat { get set }
+
 }
 
 public struct SearchViewModel: SearchViewModelProtocol {
@@ -23,14 +28,18 @@ public struct SearchViewModel: SearchViewModelProtocol {
     var numberOfCellsInRow: Int
     var spaceBetweenCells: Int
     var persistance: PersistanceProtocol
+    var minimumSpacing: CGFloat
+    var edgeInsetPadding: CGFloat
 
     init(title: String, placeholder: String, reuseIdentifier: String, numberOfCellsInRow: Int, spaceBetweenCells: Int,
-        persistance: PersistanceProtocol) {
+        persistance: PersistanceProtocol, minimumSpacing: CGFloat, edgeInsetPadding: CGFloat) {
         self.title = title
         self.placeholder = placeholder
         self.reuseIdentifier = reuseIdentifier
         self.numberOfCellsInRow = numberOfCellsInRow
         self.spaceBetweenCells = spaceBetweenCells
         self.persistance = persistance
+        self.minimumSpacing = minimumSpacing
+        self.edgeInsetPadding = edgeInsetPadding
     }
 }

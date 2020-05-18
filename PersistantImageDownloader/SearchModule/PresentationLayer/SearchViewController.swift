@@ -11,12 +11,16 @@ import UIKit
 
 fileprivate struct PrivateConstants {
     static let headerOffset: CGFloat = 80
+    static let edgeInsets =  UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
 }
 
 class SearchViewController: UIViewController, SearchResultsInterfaceProtocol {
     var presenter: SearchResultsPresenterProtocol
     var recentSearchesView: RecentSearchesInterface
     private var dataSource: [SearchItem] = []
+    private var numberOfItemsInRow: CGFloat = 2
+    private var minimumSpacing: CGFloat = 5
+    private var edgeInsetPadding: CGFloat = 10
 
     private var viewModel: SearchViewModelProtocol
     private var cacheManager: CacheProtocol
@@ -27,7 +31,7 @@ class SearchViewController: UIViewController, SearchResultsInterfaceProtocol {
     }()
 
     private var centerLoader: UIActivityIndicatorView = {
-        let centerLoader = UIActivityIndicatorView()
+        let centerLoader = UIActivityIndicatorView(style: .medium)
         centerLoader.translatesAutoresizingMaskIntoConstraints = false
         centerLoader.isHidden = true
         return centerLoader
@@ -35,11 +39,6 @@ class SearchViewController: UIViewController, SearchResultsInterfaceProtocol {
 
     private lazy var collectionViewLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
-        let spaceBetweenCells = CGFloat(viewModel.spaceBetweenCells)
-        let cellSize = UIScreen.main.bounds.width/CGFloat(viewModel.numberOfCellsInRow) - spaceBetweenCells
-        layout.sectionInset = UIEdgeInsets(top: spaceBetweenCells/2, left: spaceBetweenCells/2, bottom: spaceBetweenCells/2, right: spaceBetweenCells/2)
-        layout.itemSize = CGSize(width: cellSize, height: cellSize)
-        layout.minimumLineSpacing = spaceBetweenCells/2
         return layout
     }()
 
@@ -122,18 +121,55 @@ class SearchViewController: UIViewController, SearchResultsInterfaceProtocol {
         searchController.searchBar.delegate = self
         searchController.searchBar.searchTextField.clearButtonMode = .never
         definesPresentationContext = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), landscapeImagePhone: nil, style: .done, target: self, action: #selector(handleMenuTap))
     }
 
     private func registerNibs() {
         collectionView.register(SearchResultsCell.self, forCellWithReuseIdentifier: viewModel.reuseIdentifier)
     }
 
+    @objc func handleMenuTap() {
+        showOptions()
+    }
+
+    func showOptions() {
+        let alert = UIAlertController(title: "Select Grid", message: "Please Select an Option", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "2X2 Gird", style: .default, handler: { [weak self](_) in
+            print("selected 2X2 Gird")
+            self?.reloadLayout(gridSize: 2)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "3X3 Gird", style: .default, handler: { [weak self](_) in
+            print("selected 3X3 Gird")
+            self?.reloadLayout(gridSize: 3)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "4X4 Gird", style: .default, handler: { [weak self](_) in
+            print("selected 4X4 Gird")
+            self?.reloadLayout(gridSize: 4)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (_) in
+            print("dismiss")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
     private func showRecentSearches() {
         recentSearchesViewController.view.isHidden = false
     }
     
     private func hideRecentSearches() {
         recentSearchesViewController.view.isHidden = true
+    }
+
+    private func reloadLayout(gridSize: CGFloat) {
+        collectionViewLayout.invalidateLayout()
+        numberOfItemsInRow = gridSize
+        collectionView.reloadData()
     }
 
     func setUpView(with data: [SearchItem]) {
@@ -291,6 +327,28 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 extension SearchViewController: UICollectionViewDelegate {
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let inset = PrivateConstants.edgeInsets
+        viewModel.edgeInsetPadding = inset.left+inset.right
+        return inset
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return viewModel.minimumSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return viewModel.minimumSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width - (numberOfItemsInRow - 1) * viewModel.minimumSpacing - viewModel.edgeInsetPadding) / numberOfItemsInRow
+
+        return CGSize(width: width, height: width)
+    }
 }
 
 extension SearchViewController {
