@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6978F4023E63424008E96986 /* Pods_PersistantImageDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2614B6465C4288EDA675233F /* Pods_PersistantImageDownloader.framework */; };
+		7DE02D78247270390000FCD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE02D77247270390000FCD3 /* AppDelegate.swift */; };
+		7DE02D7A247270390000FCD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE02D79247270390000FCD3 /* SceneDelegate.swift */; };
+		7DE02D7C247270390000FCD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE02D7B247270390000FCD3 /* ViewController.swift */; };
+		7DE02D7F247270390000FCD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE02D7D247270390000FCD3 /* Main.storyboard */; };
+		7DE02D81247270390000FCD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DE02D80247270390000FCD3 /* Assets.xcassets */; };
+		7DE02D84247270390000FCD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE02D82247270390000FCD3 /* LaunchScreen.storyboard */; };
+		7DE02D8F247270390000FCD3 /* PersistantImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE02D8E247270390000FCD3 /* PersistantImageDownloaderTests.swift */; };
+		C0FD167A73B093F80F1DD57B /* Pods_PersistantImageDownloaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA27451150178236CC19F4A /* Pods_PersistantImageDownloaderTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7DE02D8B247270390000FCD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DE02D6C247270380000FCD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DE02D73247270390000FCD3;
+			remoteInfo = PersistantImageDownloader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AD6B0A2C1B21830DA33D56E /* Pods-PersistantImageDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistantImageDownloader.release.xcconfig"; path = "Target Support Files/Pods-PersistantImageDownloader/Pods-PersistantImageDownloader.release.xcconfig"; sourceTree = "<group>"; };
+		11E22CC879230B5E0C731011 /* Pods-PersistantImageDownloaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistantImageDownloaderTests.debug.xcconfig"; path = "Target Support Files/Pods-PersistantImageDownloaderTests/Pods-PersistantImageDownloaderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2614B6465C4288EDA675233F /* Pods_PersistantImageDownloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersistantImageDownloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA27451150178236CC19F4A /* Pods_PersistantImageDownloaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersistantImageDownloaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DE02D74247270390000FCD3 /* PersistantImageDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersistantImageDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DE02D77247270390000FCD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7DE02D79247270390000FCD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7DE02D7B247270390000FCD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7DE02D7E247270390000FCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7DE02D80247270390000FCD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7DE02D83247270390000FCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7DE02D85247270390000FCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DE02D8A247270390000FCD3 /* PersistantImageDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistantImageDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DE02D8E247270390000FCD3 /* PersistantImageDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantImageDownloaderTests.swift; sourceTree = "<group>"; };
+		7DE02D90247270390000FCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80CD3FC41680A9037A618AB5 /* Pods-PersistantImageDownloaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistantImageDownloaderTests.release.xcconfig"; path = "Target Support Files/Pods-PersistantImageDownloaderTests/Pods-PersistantImageDownloaderTests.release.xcconfig"; sourceTree = "<group>"; };
+		CC750B406C00005B7692C8DA /* Pods-PersistantImageDownloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistantImageDownloader.debug.xcconfig"; path = "Target Support Files/Pods-PersistantImageDownloader/Pods-PersistantImageDownloader.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7DE02D71247270390000FCD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6978F4023E63424008E96986 /* Pods_PersistantImageDownloader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DE02D87247270390000FCD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0FD167A73B093F80F1DD57B /* Pods_PersistantImageDownloaderTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37AC468AB9BBEE99B3410A27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2614B6465C4288EDA675233F /* Pods_PersistantImageDownloader.framework */,
+				7AA27451150178236CC19F4A /* Pods_PersistantImageDownloaderTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DE02D6B247270380000FCD3 = {
+			isa = PBXGroup;
+			children = (
+				7DE02D76247270390000FCD3 /* PersistantImageDownloader */,
+				7DE02D8D247270390000FCD3 /* PersistantImageDownloaderTests */,
+				7DE02D75247270390000FCD3 /* Products */,
+				AF118388A5B7AB221AC77C63 /* Pods */,
+				37AC468AB9BBEE99B3410A27 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7DE02D75247270390000FCD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DE02D74247270390000FCD3 /* PersistantImageDownloader.app */,
+				7DE02D8A247270390000FCD3 /* PersistantImageDownloaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DE02D76247270390000FCD3 /* PersistantImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				7DE02D77247270390000FCD3 /* AppDelegate.swift */,
+				7DE02D79247270390000FCD3 /* SceneDelegate.swift */,
+				7DE02D7B247270390000FCD3 /* ViewController.swift */,
+				7DE02D7D247270390000FCD3 /* Main.storyboard */,
+				7DE02D80247270390000FCD3 /* Assets.xcassets */,
+				7DE02D82247270390000FCD3 /* LaunchScreen.storyboard */,
+				7DE02D85247270390000FCD3 /* Info.plist */,
+			);
+			path = PersistantImageDownloader;
+			sourceTree = "<group>";
+		};
+		7DE02D8D247270390000FCD3 /* PersistantImageDownloaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				7DE02D8E247270390000FCD3 /* PersistantImageDownloaderTests.swift */,
+				7DE02D90247270390000FCD3 /* Info.plist */,
+			);
+			path = PersistantImageDownloaderTests;
+			sourceTree = "<group>";
+		};
+		AF118388A5B7AB221AC77C63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC750B406C00005B7692C8DA /* Pods-PersistantImageDownloader.debug.xcconfig */,
+				0AD6B0A2C1B21830DA33D56E /* Pods-PersistantImageDownloader.release.xcconfig */,
+				11E22CC879230B5E0C731011 /* Pods-PersistantImageDownloaderTests.debug.xcconfig */,
+				80CD3FC41680A9037A618AB5 /* Pods-PersistantImageDownloaderTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7DE02D73247270390000FCD3 /* PersistantImageDownloader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DE02D93247270390000FCD3 /* Build configuration list for PBXNativeTarget "PersistantImageDownloader" */;
+			buildPhases = (
+				32CEA8871D6E79912A28E601 /* [CP] Check Pods Manifest.lock */,
+				7DE02D70247270390000FCD3 /* Sources */,
+				7DE02D71247270390000FCD3 /* Frameworks */,
+				7DE02D72247270390000FCD3 /* Resources */,
+				D4330C5E835B2D99BD0FB0D0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PersistantImageDownloader;
+			productName = PersistantImageDownloader;
+			productReference = 7DE02D74247270390000FCD3 /* PersistantImageDownloader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7DE02D89247270390000FCD3 /* PersistantImageDownloaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DE02D96247270390000FCD3 /* Build configuration list for PBXNativeTarget "PersistantImageDownloaderTests" */;
+			buildPhases = (
+				F678F783B0F4C67F0400C5B9 /* [CP] Check Pods Manifest.lock */,
+				7DE02D86247270390000FCD3 /* Sources */,
+				7DE02D87247270390000FCD3 /* Frameworks */,
+				7DE02D88247270390000FCD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DE02D8C247270390000FCD3 /* PBXTargetDependency */,
+			);
+			name = PersistantImageDownloaderTests;
+			productName = PersistantImageDownloaderTests;
+			productReference = 7DE02D8A247270390000FCD3 /* PersistantImageDownloaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7DE02D6C247270380000FCD3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Nitin Upadhyay";
+				TargetAttributes = {
+					7DE02D73247270390000FCD3 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					7DE02D89247270390000FCD3 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 7DE02D73247270390000FCD3;
+					};
+				};
+			};
+			buildConfigurationList = 7DE02D6F247270380000FCD3 /* Build configuration list for PBXProject "PersistantImageDownloader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7DE02D6B247270380000FCD3;
+			productRefGroup = 7DE02D75247270390000FCD3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7DE02D73247270390000FCD3 /* PersistantImageDownloader */,
+				7DE02D89247270390000FCD3 /* PersistantImageDownloaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7DE02D72247270390000FCD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DE02D84247270390000FCD3 /* LaunchScreen.storyboard in Resources */,
+				7DE02D81247270390000FCD3 /* Assets.xcassets in Resources */,
+				7DE02D7F247270390000FCD3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DE02D88247270390000FCD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32CEA8871D6E79912A28E601 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PersistantImageDownloader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4330C5E835B2D99BD0FB0D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PersistantImageDownloader/Pods-PersistantImageDownloader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersistantImageDownloader/Pods-PersistantImageDownloader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F678F783B0F4C67F0400C5B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PersistantImageDownloaderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7DE02D70247270390000FCD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DE02D7C247270390000FCD3 /* ViewController.swift in Sources */,
+				7DE02D78247270390000FCD3 /* AppDelegate.swift in Sources */,
+				7DE02D7A247270390000FCD3 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DE02D86247270390000FCD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DE02D8F247270390000FCD3 /* PersistantImageDownloaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DE02D8C247270390000FCD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DE02D73247270390000FCD3 /* PersistantImageDownloader */;
+			targetProxy = 7DE02D8B247270390000FCD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7DE02D7D247270390000FCD3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DE02D7E247270390000FCD3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7DE02D82247270390000FCD3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DE02D83247270390000FCD3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7DE02D91247270390000FCD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7DE02D92247270390000FCD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7DE02D94247270390000FCD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC750B406C00005B7692C8DA /* Pods-PersistantImageDownloader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PersistantImageDownloader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mine.PersistantImageDownloader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7DE02D95247270390000FCD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AD6B0A2C1B21830DA33D56E /* Pods-PersistantImageDownloader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PersistantImageDownloader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mine.PersistantImageDownloader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7DE02D97247270390000FCD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11E22CC879230B5E0C731011 /* Pods-PersistantImageDownloaderTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PersistantImageDownloaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mine.PersistantImageDownloaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersistantImageDownloader.app/PersistantImageDownloader";
+			};
+			name = Debug;
+		};
+		7DE02D98247270390000FCD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80CD3FC41680A9037A618AB5 /* Pods-PersistantImageDownloaderTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PersistantImageDownloaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mine.PersistantImageDownloaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersistantImageDownloader.app/PersistantImageDownloader";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7DE02D6F247270380000FCD3 /* Build configuration list for PBXProject "PersistantImageDownloader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DE02D91247270390000FCD3 /* Debug */,
+				7DE02D92247270390000FCD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DE02D93247270390000FCD3 /* Build configuration list for PBXNativeTarget "PersistantImageDownloader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DE02D94247270390000FCD3 /* Debug */,
+				7DE02D95247270390000FCD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DE02D96247270390000FCD3 /* Build configuration list for PBXNativeTarget "PersistantImageDownloaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DE02D97247270390000FCD3 /* Debug */,
+				7DE02D98247270390000FCD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7DE02D6C247270380000FCD3 /* Project object */;
+}
